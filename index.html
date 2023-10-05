@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+    <link rel="stylesheet" href="/css/app-dropdown-mamnager.css">
+    <link rel="stylesheet" href="/css/sidebar-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- Include jQuery and Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+    crossorigin="anonymous">
+
+
+
+
+</head>
+<body>
+    <div class="logo"> 
+        <a class="logo-img" href="#"><img src="/images/sste_logo.jpg"></a>
+    </div>
+    <div class="accord" id="sidebar">
+        <div class="accord-item">
+            <div class="accord-button" onclick="menuButtonClick(event)" type="button" data-bs-toggle="collapse" data-bs-target="#dashboard" aria-expanded="true" aria-controls="dashboard">
+                <i class="fa-solid fa-house fa-lg"></i><span>Dashboard</span><i class="fa-solid fa-chevron-down .rotate180"></i>
+            </div>
+
+          <div id="dashboard" class="accord-collapse collapse" data-bs-parent="#sidebar">
+            <div class="accord-body">
+                <li><a href="#" class="" > Sales </a> </li> 
+                <li><a href="#" class="" > Human Resources </a></li> 
+            </div>
+          </div>
+        </div>
+        <!-- all apps filter -->
+       <div class=" accord-item app-manager-dropdown-btn">
+          <div class="accord-button apps-filter" type="button" onclick="toggleAppDropdown(event)">
+            <i class="fa-solid fa-shapes fa-lg"></i><span>All Apps</span><i class="fa-solid fa-filter"></i>
+        </div>
+       </div>
+        
+        <div class="app-manager-dropdown"  style="display: none;">
+            <!-- Your app manager divs here -->
+            <div class="app-manager-dropdown-app"> 
+              <i class="fa-solid fa-file-invoice fa-lg" style="color: #B900F6"></i> 
+              <span >Sales</span>
+          </div> 
+          <div class="app-manager-dropdown-app" > 
+              <i class="fa-solid fa-user-tie" style="color: #f37535"></i> 
+              <span >CRM</span>
+          </div> 
+          <div class="app-manager-dropdown-app" > 
+              <i class="fa-solid fa-users-line" style="color: #37a592"></i> 
+              <span >Human Resources</span>
+          </div> 
+          <div class="app-manager-dropdown-app" > 
+              <i class="fa-solid fa-cubes-stacked" style="color: #E41A71"></i> 
+              <span >Inventory &amp; Purchases</span>
+          </div> 
+          <div class="app-manager-dropdown-app" > 
+              <i class="fa-solid fa-clipboard-user" style="color: #01AEEF"></i> 
+              <span >Operations</span>
+          </div> 
+          <div class="app-manager-dropdown-app" > 
+              <i class="fa-solid fa-calculator" style="color: #80C343"></i> 
+              <span >Accounting</span>
+          </div> 
+        </div>
+   
+        <div class="accord-item">
+            <div class="accord-button collapsed" onclick="menuButtonClick(event)" type="button" data-bs-toggle="collapse" data-bs-target="#sales" aria-expanded="false" aria-controls="sales">
+                <i class="fa-solid fa-file-invoice fa-lg"></i><span>Sales</span><i class="fa-solid fa-chevron-down"></i>
+            </div>
+     
+          <div id="sales" class="accord-collapse collapse" data-bs-parent="#sidebar">
+            <div class="accord-body">
+                <li > <a href="#" class="view-invoices" > Manage Invoices </a> </li> 
+                <li > <a href="#" class="create-invoice" > Create Invoice </a> </li> 
+                <li > <a href="#" class="estimates" > Manage Estimates </a> </li> 
+                <li > <a href="#" class="create-estimate" > Create Estimate </a> </li> 
+                <li > <a href="#" class="estimates" > Credit Notes </a> </li> 
+                <li > <a href="#" class="estimates" > Refund Receipts </a> </li> 
+                <li > <a href="#" class="recurring-invoices" > Recurring Invoices </a> </li> 
+                <li > <a href="#" class="payment-history" > Client Payments </a> </li> 
+            </div>
+          </div>
+        </div>
+  
+        <div class="accord-item">
+      
+            <div class="accord-button collapsed" onclick="menuButtonClick(event)" type="button" data-bs-toggle="collapse" data-bs-target="#work-order" aria-expanded="false" aria-controls="work-order">
+                <i class="fa-solid fa-clipboard-user fa-lg"></i> <span>Work Orders</span><i class="fa-solid fa-chevron-down"></i>
+            </div>
+
+          <div id="work-order" class="accord-collapse collapse" data-bs-parent="#sidebar">
+            <div class="accord-body">
+                <li > <a href="#" class="work-order" > Work Orders </a> </li> 
+                <li > <a href="#" class="add-new-order" > Add Work Order </a> </li> 
+            </div>
+          </div>
+        </div>
+
+        <div class="accord-item">
+        
+              <div class="accord-button collapsed" onclick="menuButtonClick(event)" type="button" data-bs-toggle="collapse" data-bs-target="#clients" aria-expanded="false" aria-controls="cclients">
+                <i class="fa-solid fa-user-tie fa-lg"></i> <span>Clients</span><i class="fa-solid fa-chevron-down"></i>
+              </div>
+          
+            <div id="clients" class="accord-collapse collapse" data-bs-parent="#sidebar">
+              <div class="accord-body">
+                <li> <a href="#" class="view-clients" > Manage Clients </a> </li> 
+                <li> <a href="#" class="add-new-client" > Add New Client </a> </li> 
+                <li> <a href="#" class="view-clients" > Appointments </a> </li> 
+                <li> <a href="#" class="view-clients" > Contacts List </a> </li> 
+                <li> <a href="#" class="crm" > CRM </a> </li> 
+              </div>
+            </div>
+          </div>
+
+          <div class="accord-item">
+            
+              <div class="accord-button collapsed" onclick="menuButtonClick(event)" type="button" data-bs-toggle="collapse" data-bs-target="#inventory" aria-expanded="false" aria-controls="inventory">
+                <i class="fa-solid fa-cubes-stacked fa-lg"></i> <span>Inventory</span><i class="fa-solid fa-chevron-down"></i>
+              </div>
+      
+            <div id="inventory" class="accord-collapse collapse" data-bs-parent="#sidebar">
+              <div class="accord-body">
+                <li> <a href="#" class="manage-product" > Manage Products </a> </li> 
+                <li> <a href="#" class="manage-request" > Manage Requisitions </a> </li> 
+                <li> <a href="#" class="track-product" > Product Tracking </a> </li> 
+                <li> <a href="#" class="warehouse" > Warehouses </a> </li> 
+                <li> <a href="#" class="manage-stocks" > Manage Stocktakings </a> </li> 
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="accord-item">
+           
+              <div class="accord-button collapsed" onclick="menuButtonClick(event)" type="button" data-bs-toggle="collapse" data-bs-target="#purchase" aria-expanded="false" aria-controls="purchase">
+                <i class="fa-solid fa-cart-shopping fa-lg"></i> <span>Purchases</span><i class="fa-solid fa-chevron-down"></i>
+              </div>
+        
+            <div id="purchase" class="accord-collapse collapse" data-bs-parent="#sidebar">
+              <div class="accord-body">
+                <li> <a href="#" class="purchase-invoice" > Purchase Invoices </a> </li> 
+                <li> <a href="#" class="mange-refund" > Purchase Refunds </a> </li> 
+                <li> <a href="#" class="manage supplier" > Manage Suppliers </a> </li> 
+                <li> <a href="#" class="supplier-payments" > Suppliers Payments </a> </li> 
+              </div>
+            </div>
+          </div>
+
+          <div class="accord-item">
+        
+              <div class="accord-button collapsed" onclick="menuButtonClick(event)" type="button" data-bs-toggle="collapse" data-bs-target="#finance" aria-expanded="false" aria-controls="finance">
+                <i class="fa-solid fa-money-check-dollar fa-lg"></i> <span>Finance</span><i class="fa-solid fa-chevron-down"></i>
+              </div>
+         
+            <div id="finance" class="accord-collapse collapse" data-bs-parent="#sidebar">
+              <div class="accord-body">
+                <li> <a href="#" class="" > Expenses </a> </li> 
+                <li> <a href="#" class="saved-reports" > Treasuries &amp; Bank Accounts </a> </li> 
+              </div>
+            </div>
+          </div>
+
+          <div class="accord-item">
+         
+              <div class="accord-button collapsed" onclick="menuButtonClick(event)" type="button" data-bs-toggle="collapse" data-bs-target="#accounting" aria-expanded="false" aria-controls="accounting">
+                <i class="fa-solid fa-calculator fa-lg"></i> <span>Accounting</span><i class="fa-solid fa-chevron-down"></i>
+              </div>
+         
+            <div id="accounting" class="accord-collapse collapse" data-bs-parent="#sidebar">
+              <div class="accord-body">
+                <li> <a href="#" class="" > Journal Entries </a> </li> 
+                <li> <a href="#" class="" > Add Entry </a> </li> 
+                <li> <a href="#" class="" > Chart of Accounts </a> </li> 
+                <li> <a href="#" class="" > Accounting Settings </a> </li> 
+              </div>
+            </div>
+          </div>
+
+          <div class="accord-item">
+         
+              <div class="accord-button collapsed" onclick="menuButtonClick(event)" type="button" data-bs-toggle="collapse" data-bs-target="#request" aria-expanded="false" aria-controls="request">
+                <i class="fa-solid fa-list fa-lg"></i> <span>Requests</span><i class="fa-solid fa-chevron-down"></i>
+              </div>
+           
+            <div id="request" class="accord-collapse collapse" data-bs-parent="#sidebar">
+              <div class="accord-body">
+                <li<a href="#" > Manage Requests </a> </li> 
+              </div>
+            </div>
+          </div>
+
+          <div class="accord-item">
+         
+              <div class="accord-button collapsed" onclick="menuButtonClick(event)" type="button" data-bs-toggle="collapse" data-bs-target="#employees" aria-expanded="false" aria-controls="employees">
+                <i class="fa-solid fa-users-line fa-lg"></i> <span>Employees</span><i class="fa-solid fa-chevron-down"></i>
+              </div>
+           
+            <div id="employees" class="accord-collapse collapse" data-bs-parent="#sidebar">
+              <div class="accord-body">
+                <li<a href="#" class="add-new-client" > Manage Employees </a> </li> 
+              </div>
+            </div>
+          </div>
+
+          <div class="accord-item">
+          
+              <div class="accord-button collapsed" onclick="menuButtonClick(event)" type="button" data-bs-toggle="collapse" data-bs-target="#attendance" aria-expanded="false" aria-controls="attendance">
+                <i class="fa-solid fa-clipboard-user fa-lg"></i> <span>Attendance</span><i class="fa-solid fa-chevron-down"></i>
+              </div>
+         
+            <div id="attendance" class="accord-collapse collapse" data-bs-parent="#sidebar">
+              <div class="accord-body">
+                <li<a href="#" class="poll-box" > Attendance Logs </a> </li> 
+                <li<a href="#" class="poll-box" > Attendance Days </a> </li> 
+              </div>
+            </div>
+          </div>
+
+          <div class="accord-item">
+         
+              <div class="accord-button collapsed" onclick="menuButtonClick(event)" type="button" data-bs-toggle="collapse" data-bs-target="#payroll" aria-expanded="false" aria-controls="payroll">
+                <i class="fa-solid fa-file-invoice-dollar fa-lg"></i> <span>Payroll</span><i class="fa-solid fa-chevron-down"></i>
+              </div>
+          
+            <div id="payroll" class="accord-collapse collapse" data-bs-parent="#sidebar">
+              <div class="accord-body">
+                <li<a href="#" class="" > Contracts </a> </li> 
+                <li<a href="#" class="poll-box" > Payslips </a> </li> 
+              </div>
+            </div>
+          </div>
+
+          <div class="accord-item">
+         
+              <div class="accord-button collapsed" onclick="menuButtonClick(event)" type="button" data-bs-toggle="collapse" data-bs-target="#reports" aria-expanded="false" aria-controls="reports">
+                <i class="fa-solid fa-rectangle-list fa-lg"></i> <span>Reports</span><i class="fa-solid fa-chevron-down"></i>
+              </div>
+           
+            <div id="reports" class="accord-collapse collapse" data-bs-parent="#sidebar">
+              <div class="accord-body">
+                <li > <a href="#" class="" > Sales Reports </a> </li> 
+                <li> <a href="#" class="" > Purchases Reports </a> </li> 
+                <li> <a href="#" class="" > Accounting Reports </a> </li> 
+                <li> <a href="#" > Cheques Reports </a> </li> 
+                <li> <a href="#" class="poll-box" > Points and Credits Reports </a> </li> 
+                <li > <a href="#" class="poll-box" > Workflow Reports </a> </li> 
+                <li > <a href="#" class="" > Work Order Reports </a> </li> 
+                <li> <a href="#" class="" > Clients' Reports </a> </li> 
+                <li> <a href="#" class="" > Store Reports </a> 
+              </div>
+            </div>
+          </div>
+        
+        
+  
+  </div>
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+    crossorigin="anonymous">
+    </script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/js/sidebar-interactions.js"> </script> 
+<script src="/js/app-dropdown.js"></script>
+</body>
+</html>
